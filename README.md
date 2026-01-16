@@ -1,6 +1,6 @@
-# SiteShot CLI
+# SiteShot
 
-SiteShot is a professional, production-grade command-line interface (CLI) tool designed for **visual quality assurance (QA)** of websites.  
+SiteShot is a command-line interface (CLI) tool designed for **visual quality assurance (QA)** of websites.  
 It crawls websites using a real browser engine (Playwright + Chromium), captures full-page screenshots, and produces structured execution artifacts suitable for audits, testing, and CI/CD pipelines.
 
 This project is owned and maintained by **Credencesoft Private Limited**.  
@@ -114,7 +114,7 @@ playwright install
 Install PowerShell
 
 ```bash
-iwr https://raw.githubusercontent.com/sushil-credencesoft/siteshot/main/install/install.ps1 | ie
+iwr https://raw.githubusercontent.com/sushil-credencesoft/siteshot/main/install/install.ps1 | ixe
 ```
 
 ---
