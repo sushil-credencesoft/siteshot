@@ -111,6 +111,14 @@ playwright install
 
 ---
 
+Install PowerShell
+
+```bash
+iwr https://raw.githubusercontent.com/sushil-credencesoft/siteshot/main/install/install.ps1 | ie
+```
+
+---
+
 ## CLI Usage Overview
 
 After installation, the following command becomes available globally:
