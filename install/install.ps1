@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 Write-Host "Installing SiteShot CLI..."
 
 $InstallDir = "$env:USERPROFILE\\SiteShot"
-$BinaryUrl = "https://raw.githubusercontent.com/sushil-credencesoft/siteshot/main/dist/siteshot-windows.exe"
+$BinaryUrl = "https://raw.githubusercontent.com/sushil-credencesoft/siteshot/main/dist/siteshot.exe"
 $BinaryPath = "$InstallDir\\siteshot.exe"
 
 if (!(Test-Path $InstallDir)) {
