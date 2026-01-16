@@ -295,21 +295,30 @@ async def run(args):
     )
 
 
-def main():
-    p = argparse.ArgumentParser("SITE_SHOT — QA Visual Crawler")
-    p.add_argument("--start-url", required=True)
-    p.add_argument("--out-dir", default="output")
-    p.add_argument("--max-pages", type=int, default=100)
-    p.add_argument("--sitemap")
-    p.add_argument("--nav-selector")
-    p.add_argument("--ready-selector")
-    p.add_argument("--viewport", default="1440x900")
-    p.add_argument("--timeout", type=int, default=45)
-    p.add_argument("--user-agent")
-    p.add_argument("--mobile", action="store_true")
+# def main():
+#     p = argparse.ArgumentParser("SITE_SHOT — QA Visual Crawler")
+#     p.add_argument("--start-url", required=True)
+#     p.add_argument("--out-dir", default="output")
+#     p.add_argument("--max-pages", type=int, default=100)
+#     p.add_argument("--sitemap")
+#     p.add_argument("--nav-selector")
+#     p.add_argument("--ready-selector")
+#     p.add_argument("--viewport", default="1440x900")
+#     p.add_argument("--timeout", type=int, default=45)
+#     p.add_argument("--user-agent")
+#     p.add_argument("--mobile", action="store_true")
 
-    asyncio.run(run(p.parse_args()))
+#     asyncio.run(run(p.parse_args()))
 
 
-if __name__ == "__main__":
-    main()
+def run_crawl(args):
+    """
+    Synchronous CLI entry point for crawler.
+    Required for argparse + PyInstaller.
+    """
+    asyncio.run(run(args))
+
+
+
+# if __name__ == "__main__":
+#     main()

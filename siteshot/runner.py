@@ -1,8 +1,7 @@
-# runner logic placeholder (use earlier provided runner code here)
 #!/usr/bin/env python3
 """
-Universal Test Runner for site_shot.py
-======================================
+Universal Test Runner for SiteShot
+==================================
 
 Supports:
 - CSV
@@ -13,16 +12,8 @@ Supports:
 Generates:
 - execution_report.csv
 - per-test stdout / stderr logs
-
-USAGE
------
-python run_from_file.py --file site_shot_test_cases.csv
-python run_from_file.py --file site_shot_test_cases.xlsx
-python run_from_file.py --file site_shot_test_cases.json
-python run_from_file.py --file site_shot_test_cases.xml
 """
 
-import argparse
 import csv
 import json
 import os
@@ -85,7 +76,7 @@ def load_json(path):
 
 def load_xlsx(path):
     if not openpyxl:
-        raise RuntimeError("openpyxl required for XLSX support")
+        raise RuntimeError("openpyxl is required for XLSX support")
     wb = openpyxl.load_workbook(path)
     ws = wb.active
     headers = [c.value for c in ws[1]]
@@ -118,21 +109,20 @@ def load_test_cases(path):
 
 
 # -------------------------------------------------
-# Main
+# Core runner (NO argparse here)
 # -------------------------------------------------
 
-def main():
-    parser = argparse.ArgumentParser("Universal QA Test Runner")
-    parser.add_argument("--file", required=True, help="CSV/XLSX/JSON/XML test file")
-    parser.add_argument("--out-dir", default="test_results")
-    args = parser.parse_args()
+def main_runner(args):
+    """
+    Core test execution logic.
+    Expects args.file and args.out_dir.
+    """
 
     os.makedirs(args.out_dir, exist_ok=True)
     logs_dir = os.path.join(args.out_dir, "logs")
     os.makedirs(logs_dir, exist_ok=True)
 
     report_path = os.path.join(args.out_dir, "execution_report.csv")
-
     test_cases = load_test_cases(args.file)
 
     report_fields = [
@@ -193,9 +183,16 @@ def main():
 
             print(f"  ✔ {status} ({result['duration']}s)")
 
-    print("\n✅ All test cases executed")
-    print(f"📄 Report generated: {report_path}")
+    print("\nAll test cases executed")
+    print(f"Report generated: {report_path}")
 
 
-if __name__ == "__main__":
-    main()
+# -------------------------------------------------
+# CLI entry point (USED BY siteshot.cli)
+# -------------------------------------------------
+
+def run_tests(args):
+    """
+    Synchronous CLI entry point for SiteShot.
+    """
+    main_runner(args)
