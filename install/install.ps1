@@ -3,14 +3,14 @@ $ErrorActionPreference = "Stop"
 Write-Host "Installing SiteShot CLI..."
 
 $InstallDir = "$env:USERPROFILE\\SiteShot"
-$BinaryUrl = "https://raw.githubusercontent.com/sushil-credencesoft/siteshot/main/dist/siteshot.exe"
+$BinaryUrl  = "https://github.com/sushil-credencesoft/siteshot/releases/download/v1.0.0/siteshot.exe"
 $BinaryPath = "$InstallDir\\siteshot.exe"
 
 if (!(Test-Path $InstallDir)) {
     New-Item -ItemType Directory -Path $InstallDir | Out-Null
 }
 
-Invoke-WebRequest -Uri $BinaryUrl -OutFile $BinaryPath
+Invoke-WebRequest -Uri $BinaryUrl -OutFile $BinaryPath -UseBasicParsing
 
 $CurrentPath = [Environment]::GetEnvironmentVariable("PATH", "User")
 if ($CurrentPath -notlike "*SiteShot*") {
@@ -22,4 +22,4 @@ if ($CurrentPath -notlike "*SiteShot*") {
 }
 
 Write-Host "SiteShot installed successfully."
-Write-Host "Restart terminal and run: siteshot --help"
+Write-Host "Restart PowerShell and run: siteshot --help"
