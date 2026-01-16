@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: siteshot
+Version: 1.0.0
+Summary: Website visual QA crawler using Playwright
+Author: SiteShot Team
+Requires-Python: >=3.9
+Requires-Dist: playwright
+Requires-Dist: aiohttp
+Requires-Dist: lxml
+Requires-Dist: openpyxl

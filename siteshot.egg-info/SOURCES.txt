@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+siteshot/__init__.py
+siteshot/cli.py
+siteshot/crawl.py
+siteshot/runner.py
+siteshot.egg-info/PKG-INFO
+siteshot.egg-info/SOURCES.txt
+siteshot.egg-info/dependency_links.txt
+siteshot.egg-info/entry_points.txt
+siteshot.egg-info/requires.txt
+siteshot.egg-info/top_level.txt

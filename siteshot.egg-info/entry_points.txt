@@ -1,0 +1,2 @@
+[console_scripts]
+siteshot = siteshot.cli:main
